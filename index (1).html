@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>まろ | 運動習慣トレーナー</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4654A;
+      --terracotta-light: #D4785E;
+      --offwhite: #FAF7F2;
+      --beige: #EDE0D4;
+      --dark: #2C1810;
+      --gray: #7A6A62;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--offwhite);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--dark);
+      color: var(--offwhite);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      opacity: 0.15;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      opacity: 0.1;
+      bottom: -80px;
+      left: -80px;
+    }
+
+    .hero-tag {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 span {
+      color: var(--terracotta);
+    }
+
+    .hero p {
+      font-size: clamp(14px, 3vw, 17px);
+      color: #C4B5AD;
+      max-width: 480px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-name {
+      font-size: 13px;
+      color: var(--beige);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: background 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn:hover { background: var(--terracotta-light); }
+
+    /* STREAK */
+    .streak {
+      background: var(--terracotta);
+      color: white;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .streak-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .streak p {
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      opacity: 0.85;
+    }
+
+    .streak-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: background 0.3s;
+    }
+
+    .dot.active { background: white; }
+
+    .streak-label {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-size: clamp(22px, 5vw, 34px);
+      font-weight: 900;
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+
+    /* FOR WHO */
+    .list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--beige);
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .list-item::before {
+      content: '✓';
+      color: var(--terracotta);
+      font-weight: 900;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* REASONS */
+    .reasons {
+      background: var(--dark);
+      color: var(--offwhite);
+      padding: 80px 24px;
+    }
+
+    .reasons-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .reasons .section-tag { color: var(--terracotta); }
+    .reasons h2 { color: var(--offwhite); margin-bottom: 40px; }
+
+    .reason-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .reason-card {
+      border-left: 3px solid var(--terracotta);
+      padding-left: 24px;
+    }
+
+    .reason-number {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .reason-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .reason-card p { color: #C4B5AD; font-size: 14px; }
+
+    /* PROGRAM */
+    .program-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .program-card {
+      background: var(--beige);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--terracotta);
+    }
+
+    .program-month {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .program-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .program-card p { font-size: 14px; color: var(--gray); }
+
+    /* CHANGES */
+    .changes {
+      background: var(--terracotta);
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .changes-inner { max-width: 680px; margin: 0 auto; }
+    .changes .section-tag { color: rgba(255,255,255,0.7); }
+    .changes h2 { color: white; margin-bottom: 40px; }
+
+    .change-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .change-item {
+      background: rgba(255,255,255,0.15);
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .change-item span { font-size: 20px; }
+
+    /* PRICE */
+    .price-box {
+      background: var(--dark);
+      color: var(--offwhite);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .price-monitor {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .price-main {
+      font-size: clamp(40px, 10vw, 64px);
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .price-sub {
+      font-size: 14px;
+      color: #C4B5AD;
+      margin-bottom: 24px;
+    }
+
+    .price-original {
+      font-size: 13px;
+      color: #7A6A62;
+      text-decoration: line-through;
+      margin-bottom: 32px;
+    }
+
+    /* TRAINER */
+    .trainer-box {
+      background: var(--beige);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .trainer-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      color: white;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-weight: 900;
+    }
+
+    .trainer-box h3 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .trainer-role {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .trainer-box p { font-size: 14px; color: var(--gray); }
+
+    /* CTA */
+    .cta {
+      background: var(--dark);
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-inner { max-width: 480px; margin: 0 auto; }
+    .cta h2 { font-size: clamp(22px, 5vw, 32px); font-weight: 900; margin-bottom: 16px; }
+    .cta p { color: #C4B5AD; font-size: 14px; margin-bottom: 32px; }
+
+    .btn-line {
+      display: inline-block;
+      background: #06C755;
+      color: white;
+      padding: 18px 48px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    .cta-note { font-size: 12px; color: #7A6A62; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid #3A2820;
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #7A6A62;
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">運動習慣トレーナー まろ</p>
+  <h1>忙しい毎日でも、<br><span>続けられる体</span>になる。</h1>
+  <p>続かないのは、あなたのせいじゃない。<br>やり方が合ってないだけ。</p>
+  <a href="#contact" class="btn">無料相談はこちら</a>
+  <p class="hero-name">＼ ズボラ筋トレ専門 ／</p>
+</section>
+
+<!-- STREAK -->
+<div class="streak">
+  <div class="streak-inner">
+    <p>KEEP GOING</p>
+    <div class="streak-dots" id="dots"></div>
+    <p class="streak-label">小さな継続が、体を変える。</p>
+  </div>
+</div>
+
+<!-- FOR WHO -->
+<section class="section">
+  <p class="section-tag">For You</p>
+  <h2>こんな人のための<br>プログラムです</h2>
+  <div class="list-items">
+    <div class="list-item">運動が続いたことがない</div>
+    <div class="list-item">仕事や家事で時間が取れない</div>
+    <div class="list-item">ジムに行くのが億劫</div>
+    <div class="list-item">何から始めればいいかわからない</div>
+    <div class="list-item">一人だとすぐサボってしまう</div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<div class="reasons">
+  <div class="reasons-inner">
+    <p class="section-tag">Why Maro</p>
+    <h2>選ばれる3つの理由</h2>
+    <div class="reason-cards">
+      <div class="reason-card">
+        <p class="reason-number">REASON 01</p>
+        <h3>自宅で完結</h3>
+        <p>ジムに行かなくていい。スマホ1台、5分からでOK。忙しい毎日でも続けられる環境を一緒に作ります。</p>
+      </div>
+      <div class="reason-card">
+        <p class="reason-number">REASON 02</p>
+        <h3>週1回・60分だけ</h3>
+        <p>仕事に育児にと忙しい25〜35歳でも無理なく続けられる頻度。完璧じゃなくていい。</p>
+      </div>
+      <div class="reason-card">
+        <p class="reason-number">REASON 03</p>
+        <h3>続けることが目標</h3>
+        <p>痩せることより、まず動くクセをつける。それだけで毎日が変わり始めます。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAM -->
+<section class="section">
+  <p class="section-tag">Program</p>
+  <h2>3ヶ月で<br>自分で動ける体になる</h2>
+  <div class="program-cards">
+    <div class="program-card">
+      <p class="program-month">1ヶ月目</p>
+      <h3>習慣作り</h3>
+      <p>まず運動するクセをつける。毎日できる種目を一緒に決めて、完璧じゃなくていい環境を作る。</p>
+    </div>
+    <div class="program-card">
+      <p class="program-month">2ヶ月目</p>
+      <h3>定着・レベルアップ</h3>
+      <p>習慣になってきた種目を少しレベルアップ。自分でできる感覚を作っていく。</p>
+    </div>
+    <div class="program-card">
+      <p class="program-month">3ヶ月目</p>
+      <h3>自立・卒業準備</h3>
+      <p>トレーナーなしでも動ける体を作る。自分だけのルーティンを完成させて卒業。</p>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:24px; font-size:13px; color:var(--gray);">週1回・60分・全12回</p>
+</section>
+
+<!-- CHANGES -->
+<div class="changes">
+  <div class="changes-inner">
+    <p class="section-tag">Results</p>
+    <h2>こんな変化が<br>起きます</h2>
+    <div class="change-list">
+      <div class="change-item"><span>🌅</span>朝起きるのが少し楽になる</div>
+      <div class="change-item"><span>✨</span>体が軽くなってくる</div>
+      <div class="change-item"><span>💪</span>「続けられてる自分」に自信がつく</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE -->
+<section class="section">
+  <p class="section-tag">Price</p>
+  <h2>料金</h2>
+  <div class="price-box">
+    <p class="price-monitor">モニター価格</p>
+    <p class="price-main">¥3,000<span style="font-size:18px;">/月</span></p>
+    <p class="price-sub">3ヶ月合計 ¥9,000（税込）</p>
+    <p class="price-original">通常価格 ¥10,000/月</p>
+    <a href="#contact" class="btn">今すぐ申し込む</a>
+  </div>
+</section>
+
+<!-- TRAINER -->
+<section class="section" style="padding-top:0;">
+  <p class="section-tag">Trainer</p>
+  <h2>トレーナー紹介</h2>
+  <div class="trainer-box">
+    <div class="trainer-icon">ま</div>
+    <h3>まろ</h3>
+    <p class="trainer-role">続かない人専門・運動習慣トレーナー</p>
+    <p>自身も運動が続かなかった経験から、「ゆるく続けられる人になる」をコンセプトに指導。Instagram @maro0114_gym で毎日発信中。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta" id="contact">
+  <div class="cta-inner">
+    <h2>まずは気軽に<br>相談してください</h2>
+    <p>LINEに「体験」と送るだけ。<br>無理な勧誘は一切しません。</p>
+    <a href="https://lin.ee/your-line-link" class="btn-line">LINEで無料相談する</a>
+    <p class="cta-note">※LINEのリンクは後で設定してください</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2024 まろ | 運動習慣トレーナー</p>
+</footer>
+
+<script>
+  // ストリークドット
+  const dotsContainer = document.getElementById('dots');
+  for (let i = 0; i < 21; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i < 14 ? ' active' : '');
+    dotsContainer.appendChild(dot);
+  }
+</script>
+
+</body>
+</html>
