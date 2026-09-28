@@ -2,507 +2,329 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>まろ | 運動習慣トレーナー</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>まろジム｜ゆるく続けられる人になる</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --terracotta: #C4654A;
-      --terracotta-light: #D4785E;
-      --offwhite: #FAF7F2;
-      --beige: #EDE0D4;
-      --dark: #2C1810;
-      --gray: #7A6A62;
+      --terracotta-soft: #F3E1D8;
+      --offwhite: #FAF6F1;
+      --sand: #E8DED6;
+      --dark: #2E221C;
+      --text: #3A2E28;
+      --gray: #8A7A6E;
     }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', 'Yu Gothic', sans-serif;
       background: var(--offwhite);
-      color: var(--dark);
-      line-height: 1.7;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    img { max-width: 100%; }
+
+    .section { max-width: 680px; margin: 0 auto; padding: 80px 24px; }
+    .tight { padding-top: 0; }
+
+    .tag {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 6vw, 32px);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 32px;
     }
 
     /* HERO */
     .hero {
-      background: var(--dark);
-      color: var(--offwhite);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 72px 24px 64px;
       text-align: center;
-      padding: 60px 24px;
-      position: relative;
-      overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: var(--terracotta);
-      opacity: 0.15;
-      top: -100px;
-      right: -100px;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: var(--terracotta);
-      opacity: 0.1;
-      bottom: -80px;
-      left: -80px;
-    }
-
-    .hero-tag {
-      font-size: 12px;
-      letter-spacing: 3px;
-      color: var(--terracotta);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      font-weight: 700;
-    }
-
+    .hero-sub { font-size: 14px; color: var(--gray); margin-bottom: 16px; }
     .hero h1 {
-      font-size: clamp(28px, 6vw, 52px);
+      font-size: clamp(34px, 9vw, 52px);
       font-weight: 900;
       line-height: 1.3;
       margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
     }
-
-    .hero h1 span {
-      color: var(--terracotta);
+    .hero-text { font-size: 15px; margin-bottom: 8px; }
+    .hero-img {
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 32px auto;
+      display: block;
     }
-
-    .hero p {
-      font-size: clamp(14px, 3vw, 17px);
-      color: #C4B5AD;
-      max-width: 480px;
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-name {
-      font-size: 13px;
-      color: var(--beige);
-      letter-spacing: 2px;
-      position: relative;
-      z-index: 1;
-    }
-
     .btn {
       display: inline-block;
       background: var(--terracotta);
-      color: white;
-      padding: 16px 40px;
+      color: #fff;
+      padding: 16px 44px;
       border-radius: 50px;
-      font-size: 15px;
       font-weight: 700;
       text-decoration: none;
-      margin-bottom: 20px;
-      transition: background 0.2s;
-      position: relative;
-      z-index: 1;
     }
-
-    .btn:hover { background: var(--terracotta-light); }
+    .btn:focus-visible { outline: 3px solid var(--dark); outline-offset: 3px; }
+    .hero-name { margin-top: 20px; font-size: 13px; color: var(--gray); }
 
     /* STREAK */
-    .streak {
-      background: var(--terracotta);
-      color: white;
-      padding: 40px 24px;
-      text-align: center;
-    }
+    .streak { background: var(--terracotta-soft); padding: 32px 24px; text-align: center; }
+    .streak-dots { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .dot { width: 14px; height: 14px; border-radius: 50%; background: #fff; }
+    .dot.active { background: var(--terracotta); }
+    .streak-label { font-size: 14px; font-weight: 700; }
 
-    .streak-inner {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .streak p {
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      opacity: 0.85;
-    }
-
-    .streak-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      transition: background 0.3s;
-    }
-
-    .dot.active { background: white; }
-
-    .streak-label {
-      font-size: 22px;
-      font-weight: 900;
-    }
-
-    /* SECTIONS */
-    .section {
-      padding: 80px 24px;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .section-tag {
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: var(--terracotta);
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .section h2 {
-      font-size: clamp(22px, 5vw, 34px);
-      font-weight: 900;
-      margin-bottom: 32px;
-      line-height: 1.4;
-    }
-
-    /* FOR WHO */
-    .list-items {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
+    /* FOR YOU */
+    .list-items { display: flex; flex-direction: column; gap: 12px; }
     .list-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: var(--beige);
-      padding: 16px 20px;
+      background: #fff;
       border-radius: 12px;
+      padding: 16px 20px;
       font-size: 15px;
     }
+    .list-item::before { content: '✓ '; color: var(--terracotta); font-weight: 900; }
 
-    .list-item::before {
-      content: '✓';
-      color: var(--terracotta);
-      font-weight: 900;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
+    /* BEFORE AFTER */
+    .ba-wrap { display: flex; flex-direction: column; gap: 16px; }
+    .ba-card { border-radius: 20px; padding: 28px; }
+    .ba-before { background: var(--sand); }
+    .ba-after { background: var(--dark); color: var(--offwhite); }
+    .ba-label { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .ba-before .ba-label { color: var(--gray); }
+    .ba-after .ba-label { color: #E89A80; }
+    .ba-title { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
+    .ba-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+    .ba-before .ba-list li::before { content: '− '; color: var(--gray); font-weight: 900; }
+    .ba-after .ba-list li::before { content: '＋ '; color: #E89A80; font-weight: 900; }
+    .ba-arrow { text-align: center; font-size: 28px; color: var(--terracotta); font-weight: 900; }
 
-    /* REASONS */
-    .reasons {
-      background: var(--dark);
-      color: var(--offwhite);
-      padding: 80px 24px;
-    }
-
-    .reasons-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .reasons .section-tag { color: var(--terracotta); }
-    .reasons h2 { color: var(--offwhite); margin-bottom: 40px; }
-
-    .reason-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .reason-card {
-      border-left: 3px solid var(--terracotta);
-      padding-left: 24px;
-    }
-
-    .reason-number {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--terracotta);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .reason-card h3 {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .reason-card p { color: #C4B5AD; font-size: 14px; }
-
-    /* PROGRAM */
-    .program-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .program-card {
-      background: var(--beige);
+    /* SCIENCE */
+    .science { background: var(--dark); color: var(--offwhite); }
+    .science .tag { color: #E89A80; }
+    .science-cards { display: flex; flex-direction: column; gap: 28px; margin-bottom: 40px; }
+    .science-card { border-left: 3px solid var(--terracotta); padding-left: 20px; }
+    .science-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 8px; }
+    .science-card p { color: #C4B5AD; font-size: 14px; }
+    .science-quote {
+      background: rgba(196, 101, 74, 0.18);
       border-radius: 16px;
       padding: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .program-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--terracotta);
-    }
-
-    .program-month {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--terracotta);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .program-card h3 {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .program-card p { font-size: 14px; color: var(--gray); }
-
-    /* CHANGES */
-    .changes {
-      background: var(--terracotta);
-      color: white;
-      padding: 80px 24px;
       text-align: center;
-    }
-
-    .changes-inner { max-width: 680px; margin: 0 auto; }
-    .changes .section-tag { color: rgba(255,255,255,0.7); }
-    .changes h2 { color: white; margin-bottom: 40px; }
-
-    .change-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      text-align: left;
-    }
-
-    .change-item {
-      background: rgba(255,255,255,0.15);
-      padding: 16px 20px;
-      border-radius: 12px;
-      font-size: 15px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .change-item span { font-size: 20px; }
-
-    /* PRICE */
-    .price-box {
-      background: var(--dark);
-      color: var(--offwhite);
-      border-radius: 20px;
-      padding: 48px 32px;
-      text-align: center;
-    }
-
-    .price-monitor {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--terracotta);
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .price-main {
-      font-size: clamp(40px, 10vw, 64px);
+      font-size: clamp(17px, 4.5vw, 21px);
       font-weight: 900;
-      color: white;
-      line-height: 1;
-      margin-bottom: 8px;
+      line-height: 1.7;
     }
 
-    .price-sub {
-      font-size: 14px;
-      color: #C4B5AD;
-      margin-bottom: 24px;
-    }
+    /* PROGRAM */
+    .program-cards { display: flex; flex-direction: column; gap: 16px; }
+    .program-card { background: #fff; border-radius: 16px; padding: 24px; }
+    .program-month { font-size: 13px; font-weight: 700; color: var(--terracotta); }
+    .program-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 6px; }
+    .program-card p { font-size: 14px; }
+    .note { text-align: center; margin-top: 24px; font-size: 13px; color: var(--gray); }
 
-    .price-original {
-      font-size: 13px;
-      color: #7A6A62;
-      text-decoration: line-through;
-      margin-bottom: 32px;
-    }
+    /* DIFFERENCE */
+    .diff-wrap { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+    .diff-card { border-radius: 16px; padding: 24px; }
+    .diff-without { background: var(--sand); }
+    .diff-with { background: var(--terracotta); color: #fff; }
+    .diff-label { font-weight: 900; margin-bottom: 12px; }
+    .diff-flow { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+    .flow-arrow { opacity: 0.6; }
+    .diff-message { text-align: center; font-weight: 900; font-size: 17px; }
 
-    /* TRAINER */
-    .trainer-box {
-      background: var(--beige);
-      border-radius: 20px;
-      padding: 40px 32px;
-      text-align: center;
+    /* COURSES */
+    .course-cards { display: flex; flex-direction: column; gap: 16px; }
+    .course-card { background: #fff; border-radius: 16px; padding: 24px; position: relative; }
+    .course-card.featured { border: 2px solid var(--terracotta); }
+    .badge {
+      position: absolute; top: -12px; left: 20px;
+      background: var(--terracotta); color: #fff;
+      font-size: 12px; font-weight: 700;
+      padding: 2px 12px; border-radius: 20px;
     }
+    .course-card h3 { font-size: 18px; font-weight: 900; }
+    .course-desc { font-size: 14px; color: var(--gray); margin-bottom: 8px; }
+    .price { font-size: 26px; font-weight: 900; color: var(--terracotta); }
+    .monitor { font-size: 13px; font-weight: 700; margin-top: 4px; }
 
-    .trainer-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--terracotta);
-      color: white;
-      font-size: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-weight: 900;
-    }
-
-    .trainer-box h3 {
-      font-size: 22px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .trainer-role {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--terracotta);
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .trainer-box p { font-size: 14px; color: var(--gray); }
+    /* SUPPORT */
+    .support { background: var(--terracotta-soft); border-radius: 20px; padding: 28px; font-size: 15px; }
 
     /* CTA */
-    .cta {
-      background: var(--dark);
-      color: white;
-      padding: 80px 24px;
-      text-align: center;
-    }
+    .cta { background: var(--dark); color: var(--offwhite); text-align: center; }
+    .cta h2 { margin-bottom: 16px; }
+    .cta p { font-size: 14px; margin-bottom: 28px; color: #C4B5AD; }
+    .btn-line { background: #06C755; }
+    .cta-note { font-size: 12px; color: var(--gray); margin-top: 12px; }
 
-    .cta-inner { max-width: 480px; margin: 0 auto; }
-    .cta h2 { font-size: clamp(22px, 5vw, 32px); font-weight: 900; margin-bottom: 16px; }
-    .cta p { color: #C4B5AD; font-size: 14px; margin-bottom: 32px; }
-
-    .btn-line {
-      display: inline-block;
-      background: #06C755;
-      color: white;
-      padding: 18px 48px;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-bottom: 16px;
-    }
-
-    .cta-note { font-size: 12px; color: #7A6A62; }
-
-    /* FOOTER */
-    footer {
-      background: var(--dark);
-      border-top: 1px solid #3A2820;
-      padding: 24px;
-      text-align: center;
-      font-size: 12px;
-      color: #7A6A62;
-    }
+    footer { background: var(--dark); border-top: 1px solid #3A2820; padding: 24px; text-align: center; font-size: 12px; color: var(--gray); }
 
     @media (max-width: 480px) {
       .section { padding: 60px 20px; }
+      .tight { padding-top: 0; }
     }
+
+    /* BA PHOTO */
+    .ba-photo { margin-bottom: 28px; }
+    .ba-photo img { width: 100%; border-radius: 16px; display: block; }
+    .ba-photo-note { font-size: 12px; color: var(--gray); text-align: right; margin-top: 8px; }
+
+    /* FUTURE */
+    .future-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+    .future-card { background: #fff; border-left: 4px solid var(--terracotta); border-radius: 12px; padding: 20px 24px; }
+    .future-card h3 { font-size: 17px; font-weight: 900; margin-bottom: 6px; }
+    .future-card p { font-size: 14px; }
+    .future-message { text-align: center; font-weight: 900; font-size: 17px; }
+    .diff-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block; margin-bottom: 16px; }
+    .diff-note { font-size: 12px; color: var(--gray); text-align: right; margin: -16px 0 24px; }
   </style>
 </head>
 <body>
 
 <!-- HERO -->
-<section class="hero">
-  <p class="hero-tag">運動習慣トレーナー まろ</p>
-  <h1>忙しい毎日でも、<br><span>続けられる体</span>になる。</h1>
-  <p>続かないのは、あなたのせいじゃない。<br>やり方が合ってないだけ。</p>
+<header class="hero">
+  <p class="hero-sub">運動習慣トレーナー まろ</p>
+  <h1>ゆるく<br>続けられる人に<br>なる。</h1>
+  <p class="hero-text">痩せるためじゃない。<br>毎晩「今日もできた」って思って眠るための運動習慣。</p>
+  <p class="hero-text">あなたのペースを、私がずっと見てます。</p>
+
+  <!-- ★ここに画像：images/hero.jpg をアップロードすると表示されます -->
+  <img src="images/hero.jpg" alt="自宅でゆるく運動する女性" class="hero-img" onerror="this.style.display='none'">
+
   <a href="#contact" class="btn">無料相談はこちら</a>
   <p class="hero-name">＼ ズボラ筋トレ専門 ／</p>
-</section>
+</header>
 
 <!-- STREAK -->
 <div class="streak">
-  <div class="streak-inner">
-    <p>KEEP GOING</p>
-    <div class="streak-dots" id="dots"></div>
-    <p class="streak-label">小さな継続が、体を変える。</p>
-  </div>
+  <div class="streak-dots" id="dots"></div>
+  <p class="streak-label">小さな継続が、体を変える。</p>
 </div>
 
-<!-- FOR WHO -->
+<!-- FOR YOU -->
 <section class="section">
-  <p class="section-tag">For You</p>
+  <p class="tag">こんな人へ</p>
   <h2>こんな人のための<br>プログラムです</h2>
   <div class="list-items">
-    <div class="list-item">運動が続いたことがない</div>
-    <div class="list-item">仕事や家事で時間が取れない</div>
-    <div class="list-item">ジムに行くのが億劫</div>
-    <div class="list-item">何から始めればいいかわからない</div>
+    <div class="list-item">朝、ギリギリまで起きられない</div>
+    <div class="list-item">「明日からやろう」を繰り返してる</div>
+    <div class="list-item">ジムを契約したのに行かなくなった</div>
+    <div class="list-item">仕事で疲れて、自分のことが後回し</div>
     <div class="list-item">一人だとすぐサボってしまう</div>
   </div>
 </section>
 
-<!-- REASONS -->
-<div class="reasons">
-  <div class="reasons-inner">
-    <p class="section-tag">Why Maro</p>
-    <h2>選ばれる3つの理由</h2>
-    <div class="reason-cards">
-      <div class="reason-card">
-        <p class="reason-number">REASON 01</p>
-        <h3>自宅で完結</h3>
-        <p>ジムに行かなくていい。スマホ1台、5分からでOK。忙しい毎日でも続けられる環境を一緒に作ります。</p>
+<!-- BEFORE AFTER -->
+<section class="section tight">
+  <p class="tag">Before → After</p>
+  <h2>3ヶ月前の私と、<br>今の私</h2>
+
+  <div class="ba-photo">
+    <img src="images/tr.webp" alt="夜にだらだら過ごす女性と、朝にストレッチする女性の比較イメージ" onerror="this.parentElement.style.display='none'">
+    <p class="ba-photo-note">※画像はイメージです</p>
+  </div>
+
+  <div class="ba-wrap">
+
+    <div class="ba-card ba-before">
+      <p class="ba-label">Before</p>
+      <p class="ba-title">受ける前の私</p>
+      <ul class="ba-list">
+        <li>朝、ギリギリまで起きられない</li>
+        <li>仕事から帰ったらソファで寝落ち</li>
+        <li>「明日からやろう」を3年繰り返してる</li>
+        <li>ジム契約→3回行って終わった過去</li>
+        <li>日曜の夜、何もしなかった罪悪感</li>
+      </ul>
+    </div>
+
+    <p class="ba-arrow" aria-hidden="true">↓</p>
+
+    <div class="ba-card ba-after">
+      <p class="ba-label">After</p>
+      <p class="ba-title">3ヶ月後の私</p>
+      <ul class="ba-list">
+        <li>寝る前5分の運動が歯磨きレベルの習慣に</li>
+        <li>朝起きるのが前より楽になった</li>
+        <li>「今日もできた」って思って眠れる</li>
+        <li>サボっても翌日戻れるようになった</li>
+        <li>自分との約束を守れてる自信がついた</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<div class="science">
+  <section class="section">
+    <p class="tag">なぜ3ヶ月？</p>
+    <h2>なぜ「3ヶ月」で<br>人は変われるのか</h2>
+    <div class="science-cards">
+      <div class="science-card">
+        <h3>習慣は66日で自動化する</h3>
+        <p>ロンドン大学の研究で、行動が習慣になるまで平均66日かかることがわかっています。3ヶ月あれば「頑張って運動する」が「気づいたらやってる」に変わる。意志の力に頼らなくてよくなります。</p>
       </div>
-      <div class="reason-card">
-        <p class="reason-number">REASON 02</p>
-        <h3>週1回・60分だけ</h3>
-        <p>仕事に育児にと忙しい25〜35歳でも無理なく続けられる頻度。完璧じゃなくていい。</p>
+      <div class="science-card">
+        <h3>筋肉が変わり始めるのが8〜12週目</h3>
+        <p>最初の1〜2ヶ月で変わるのは筋肉ではなく「神経」。体が筋肉の使い方を思い出す期間です。筋肉そのものが目に見えて変わり始めるのが8〜12週目。3ヶ月で初めて「あれ、変わってきた」を実感できます。</p>
       </div>
-      <div class="reason-card">
-        <p class="reason-number">REASON 03</p>
-        <h3>続けることが目標</h3>
-        <p>痩せることより、まず動くクセをつける。それだけで毎日が変わり始めます。</p>
+      <div class="science-card">
+        <h3>代謝が切り替わるのも3ヶ月</h3>
+        <p>筋肉が増えると基礎代謝が上がり、何もしていない時間の消費カロリーが増えます。この「太りにくい体への切り替わり」が始まるのが3ヶ月目です。</p>
       </div>
     </div>
-  </div>
+    <div class="science-quote">
+      1ヶ月で心が変わる<br>2ヶ月で習慣が変わる<br>3ヶ月で体が変わる
+    </div>
+  </section>
 </div>
+
+<!-- FUTURE -->
+<section class="section">
+  <p class="tag">なぜ30代から？</p>
+  <h2>40代の自分のために、<br>今ゆるく始める理由</h2>
+  <div class="future-cards">
+    <div class="future-card">
+      <h3>体型が崩れにくくなる</h3>
+      <p>筋肉は何もしないと年齢とともに少しずつ減っていきます。筋肉が減ると代謝も下がり、同じ生活でも太りやすくなります。</p>
+    </div>
+    <div class="future-card">
+      <h3>骨を守れる</h3>
+      <p>骨の量は若いうちがピーク。40代以降は女性ホルモンが減り、骨が弱くなりやすくなります。筋トレの刺激は骨を守る味方です。</p>
+    </div>
+    <div class="future-card">
+      <h3>腰痛・肩こりを防ぐ</h3>
+      <p>姿勢を支える筋肉が弱ると、疲れやすく痛めやすい体に。今から少し動かしておくだけで違います。</p>
+    </div>
+    <div class="future-card">
+      <h3>40代の揺らぎ期に備える</h3>
+      <p>体も気分も変わりやすい40代。運動習慣がある人は、その変化に合わせて自分で調整しやすくなります。</p>
+    </div>
+  </div>
+  <p class="future-message">40代で慌てて始めるより、<br>30代でゆるく習慣にしておく方がずっと楽。</p>
+</section>
 
 <!-- PROGRAM -->
 <section class="section">
-  <p class="section-tag">Program</p>
-  <h2>3ヶ月で<br>自分で動ける体になる</h2>
+  <p class="tag">プログラム</p>
+  <h2>3ヶ月プログラムの流れ</h2>
   <div class="program-cards">
     <div class="program-card">
       <p class="program-month">1ヶ月目</p>
@@ -520,67 +342,100 @@
       <p>トレーナーなしでも動ける体を作る。自分だけのルーティンを完成させて卒業。</p>
     </div>
   </div>
-  <p style="text-align:center; margin-top:24px; font-size:13px; color:var(--gray);">週1回・60分・全12回</p>
+  <p class="note">週1回・60分・全12回</p>
 </section>
 
-<!-- CHANGES -->
-<div class="changes">
-  <div class="changes-inner">
-    <p class="section-tag">Results</p>
-    <h2>こんな変化が<br>起きます</h2>
-    <div class="change-list">
-      <div class="change-item"><span>🌅</span>朝起きるのが少し楽になる</div>
-      <div class="change-item"><span>✨</span>体が軽くなってくる</div>
-      <div class="change-item"><span>💪</span>「続けられてる自分」に自信がつく</div>
+<!-- DIFFERENCE -->
+<section class="section tight">
+  <p class="tag">違い</p>
+  <h2>受けてる人と<br>受けてない人の違い</h2>
+  <div class="diff-wrap">
+    <div class="diff-card diff-without">
+      <img class="diff-img" src="without.jpg" alt="夜にソファでだらだらスマホを見る女性" onerror="this.style.display='none'">
+      <p class="diff-label">受けてない人</p>
+      <div class="diff-flow">
+        <span>「明日からやろう」を1人で繰り返す</span>
+        <span class="flow-arrow">↓</span>
+        <span>できない自分を責める</span>
+        <span class="flow-arrow">↓</span>
+        <span>自己肯定感が下がる</span>
+        <span class="flow-arrow">↓</span>
+        <span>さらに動けなくなる</span>
+      </div>
+    </div>
+    <div class="diff-card diff-with">
+      <img class="diff-img" src="with.jpg" alt="朝にマットの上でストレッチする女性" onerror="this.style.display='none'">
+      <p class="diff-label">受けてる人</p>
+      <div class="diff-flow">
+        <span>毎週見てくれる人がいる</span>
+        <span class="flow-arrow">↓</span>
+        <span>サボっても戻る場所がある</span>
+        <span class="flow-arrow">↓</span>
+        <span>小さな「できた」が積み重なる</span>
+        <span class="flow-arrow">↓</span>
+        <span>運動以外の生活も整い始める</span>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- PRICE -->
-<section class="section">
-  <p class="section-tag">Price</p>
-  <h2>料金</h2>
-  <div class="price-box">
-    <p class="price-monitor">モニター価格</p>
-    <p class="price-main">¥3,000<span style="font-size:18px;">/月</span></p>
-    <p class="price-sub">3ヶ月合計 ¥9,000（税込）</p>
-    <p class="price-original">通常価格 ¥10,000/月</p>
-    <a href="#contact" class="btn">今すぐ申し込む</a>
-  </div>
+  <p class="diff-note">※画像はイメージです</p>
+  <p class="diff-message">違いは意志の強さじゃなくて、<br>環境があるかどうか。</p>
 </section>
 
-<!-- TRAINER -->
-<section class="section" style="padding-top:0;">
-  <p class="section-tag">Trainer</p>
-  <h2>トレーナー紹介</h2>
-  <div class="trainer-box">
-    <div class="trainer-icon">ま</div>
-    <h3>まろ</h3>
-    <p class="trainer-role">続かない人専門・運動習慣トレーナー</p>
-    <p>自身も運動が続かなかった経験から、「ゆるく続けられる人になる」をコンセプトに指導。Instagram @maro0114_gym で毎日発信中。</p>
+<!-- COURSES -->
+<section class="section tight">
+  <p class="tag">料金</p>
+  <h2>コース</h2>
+  <div class="course-cards">
+    <div class="course-card">
+      <h3>はじめの一歩</h3>
+      <p class="course-desc">まずは気軽に試してみたい人に</p>
+      <p class="price">4,980円</p>
+    </div>
+    <div class="course-card featured">
+      <span class="badge">一番人気</span>
+      <h3>ゆる習慣</h3>
+      <p class="course-desc">3ヶ月で続けられる人になりたい人に</p>
+      <p class="price">9,800円</p>
+      <p class="monitor">今だけモニター価格 3,000円</p>
+    </div>
+    <div class="course-card">
+      <h3>おかえり</h3>
+      <p class="course-desc">一度やめちゃった人・卒業後にまた戻りたい人に</p>
+      <p class="price">3,980円</p>
+    </div>
+  </div>
+  <p class="note">お支払いはPayPayで。オンライン（Zoom）で受けられます。</p>
+</section>
+
+<!-- SUPPORT -->
+<section class="section tight">
+  <p class="tag">卒業後</p>
+  <h2>卒業後も安心</h2>
+  <div class="support">
+    卒業後はたまにメンテナンスセッションで現状確認。<br>
+    動画コンテンツで、自分のペースで続けられます。<br>
+    サボっても大丈夫。いつでも「おかえり」って戻ってこれる場所です。
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta" id="contact">
-  <div class="cta-inner">
-    <h2>まずは気軽に<br>相談してください</h2>
-    <p>LINEに「体験」と送るだけ。<br>無理な勧誘は一切しません。</p>
-    <a href="https://lin.ee/your-line-link" class="btn-line">LINEで無料相談する</a>
-    <p class="cta-note">※LINEのリンクは後で設定してください</p>
-  </div>
+  <section class="section">
+    <h2>まずは無料相談から</h2>
+    <p>「続くかな？」って不安なままで大丈夫。<br>LINEで気軽に話しかけてください。</p>
+    <!-- ★ href="#" を自分のLINE公式アカウントのURLに変える -->
+    <a href="#" class="btn btn-line">LINEで無料相談する</a>
+    <p class="cta-note">無理な勧誘は一切しません</p>
+  </section>
 </div>
 
-<footer>
-  <p>© 2024 まろ | 運動習慣トレーナー</p>
-</footer>
+<footer>© まろジム</footer>
 
 <script>
-  // ストリークドット
-  const dotsContainer = document.getElementById('dots');
-  for (let i = 0; i < 21; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'dot' + (i < 14 ? ' active' : '');
+  var dotsContainer = document.getElementById('dots');
+  for (var i = 0; i < 12; i++) {
+    var dot = document.createElement('span');
+    dot.className = 'dot' + (i < 8 ? ' active' : '');
     dotsContainer.appendChild(dot);
   }
 </script>
