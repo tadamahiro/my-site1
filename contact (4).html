@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="オンラインパーソナル「まろジム」の無料相談・お問い合わせ。LINEまたはインスタのDMで気軽に相談できます。無理な勧誘は一切しません。">
+  <link rel="canonical" href="https://tadamahiro.github.io/my-site1/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="無料相談・お問い合わせ｜まろジム">
+  <meta property="og:description" content="オンラインパーソナル「まろジム」の無料相談・お問い合わせ。LINEまたはインスタのDMで気軽に相談できます。無理な勧誘は一切しません。">
+  <meta property="og:url" content="https://tadamahiro.github.io/my-site1/contact.html">
+  <meta property="og:site_name" content="まろジム">
+  <meta name="twitter:card" content="summary">
+  <!-- ★Google Search Console の確認タグはこの下に貼る -->
+  <title>無料相談・お問い合わせ｜まろジム</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracotta: #C4654A;
+      --terracotta-soft: #F3E1D8;
+      --offwhite: #FAF6F1;
+      --sand: #E8DED6;
+      --dark: #2E221C;
+      --text: #3A2E28;
+      --gray: #8A7A6E;
+      --line: #06C755;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      background: var(--offwhite);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* NAV */
+    .topbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: rgba(250, 246, 241, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--sand); }
+    .logo { font-weight: 900; font-size: 18px; color: var(--text); text-decoration: none; }
+    .menu-btn { width: 44px; height: 44px; border: none; background: var(--terracotta); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; cursor: pointer; }
+    .menu-btn span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: transform .2s, opacity .2s; }
+    .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .menu-btn:focus-visible, .menu a:focus-visible, .btn:focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
+    .menu { position: absolute; top: 64px; right: 16px; width: min(260px, calc(100vw - 32px)); background: #fff; border-radius: 16px; padding: 8px; box-shadow: 0 8px 24px rgba(46, 34, 28, 0.15); display: flex; flex-direction: column; }
+    .menu[hidden] { display: none; }
+    .menu a { padding: 14px 16px; border-radius: 10px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 15px; }
+    .menu a:hover { background: var(--terracotta-soft); }
+    .menu a[aria-current="page"] { background: var(--terracotta-soft); color: var(--terracotta); }
+
+    /* LAYOUT */
+    .section { max-width: 680px; margin: 0 auto; padding: 64px 24px; }
+    .tight { padding-top: 0; }
+    .tag { font-size: 13px; font-weight: 700; color: var(--terracotta); margin-bottom: 8px; }
+    h1 { font-size: clamp(28px, 7.5vw, 40px); font-weight: 900; line-height: 1.35; margin-bottom: 20px; }
+    h2 { font-size: clamp(22px, 5.5vw, 28px); font-weight: 900; line-height: 1.4; margin-bottom: 24px; }
+    .lead { font-size: 15px; }
+
+    /* CONTACT CARDS */
+    .contact-cards { display: flex; flex-direction: column; gap: 16px; }
+    .contact-card { background: #fff; border-radius: 20px; padding: 28px; }
+    .contact-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 4px; }
+    .contact-card p { font-size: 14px; color: var(--gray); margin-bottom: 20px; }
+    .btn { display: block; text-align: center; padding: 16px 24px; border-radius: 50px; font-weight: 700; color: #fff; text-decoration: none; }
+    .btn-line { background: var(--line); }
+    .btn-insta { background: var(--terracotta); }
+    .note { text-align: center; font-size: 13px; color: var(--gray); margin-top: 20px; }
+
+    /* FLOW */
+    .flow { list-style: none; display: flex; flex-direction: column; gap: 12px; counter-reset: step; }
+    .flow li { counter-increment: step; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; background: #fff; border-radius: 16px; padding: 18px 20px; }
+    .flow li::before { content: counter(step); width: 40px; height: 40px; border-radius: 50%; background: var(--terracotta-soft); color: var(--terracotta); font-weight: 900; display: flex; align-items: center; justify-content: center; }
+    .flow strong { display: block; font-size: 16px; }
+    .flow span { font-size: 14px; color: var(--gray); }
+
+    /* FAQ */
+    .faq { display: flex; flex-direction: column; gap: 10px; }
+    .faq details { background: #fff; border-radius: 14px; padding: 4px 20px; }
+    .faq summary { cursor: pointer; font-weight: 700; padding: 14px 0; list-style: none; position: relative; padding-right: 28px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '＋'; position: absolute; right: 0; top: 14px; color: var(--terracotta); font-weight: 900; }
+    .faq details[open] summary::after { content: '－'; }
+    .faq details p { font-size: 14px; padding-bottom: 16px; }
+
+    .back { text-align: center; padding: 0 24px 64px; }
+    .back a { color: var(--terracotta); font-weight: 700; }
+    footer { background: var(--dark); padding: 24px; text-align: center; font-size: 12px; color: var(--gray); }
+
+    @media (max-width: 480px) { .section { padding: 48px 20px; } .tight { padding-top: 0; } }
+  </style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="メニュー">
+  <a href="index.html" class="logo">まろジム</a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="menu" id="menu" hidden>
+    <a href="index.html#for-you">こんな人へ</a>
+    <a href="index.html#zubora">ずぼらでも続く理由</a>
+    <a href="index.html#program">プログラム</a>
+    <a href="index.html#trainer">トレーナー紹介</a>
+    <a href="index.html#price">料金</a>
+    <a href="contact.html" aria-current="page">無料相談・お問い合わせ</a>
+  </div>
+</nav>
+
+<main>
+  <section class="section">
+    <p class="tag">無料相談・お問い合わせ</p>
+    <h1>まずは気軽に、<br>話しかけてください</h1>
+    <p class="lead">「続くかな？」「私でもできる？」そんな不安のままで大丈夫です。相談は無料、無理な勧誘は一切しません。</p>
+  </section>
+
+  <section class="section tight">
+    <div class="contact-cards">
+      <div class="contact-card">
+        <h3>LINEで相談する</h3>
+        <p>友だち追加して「相談」と送るだけ。いちばん早くお返事できます。</p>
+        <a href="https://lin.ee/tIWjrq8" class="btn btn-line" target="_blank" rel="noopener">LINEで友だち追加</a>
+      </div>
+      <div class="contact-card">
+        <h3>インスタのDMで相談する</h3>
+        <p>普段の投稿を見てから決めたい人はこちら。DMで「相談」と送ってください。</p>
+        <a href="https://ig.me/m/maro0114_gym" class="btn btn-insta" target="_blank" rel="noopener">インスタDMを送る</a>
+      </div>
+    </div>
+    <p class="note">お返事は基本その日の夜（20時以降）になります</p>
+  </section>
+
+  <section class="section">
+    <p class="tag">相談の流れ</p>
+    <h2>申し込みまでの4ステップ</h2>
+    <ol class="flow">
+      <li><div><strong>LINEかインスタで連絡</strong><span>「相談」と送るだけでOK。</span></div></li>
+      <li><div><strong>かんたんなヒアリング</strong><span>今の生活や、続かなかった理由を聞かせてください。</span></div></li>
+      <li><div><strong>お試しレッスン（50分・3,000円）</strong><span>Zoomで実際に体を動かして、相性を確かめます。</span></div></li>
+      <li><div><strong>続けたい人だけコースへ</strong><span>3ヶ月・6ヶ月から選べます。合わなければそこで終わりでOK。</span></div></li>
+    </ol>
+  </section>
+
+  <section class="section tight">
+    <p class="tag">よくある質問</p>
+    <h2>相談の前に気になること</h2>
+    <div class="faq">
+      <details>
+        <summary>運動がまったく続いたことがなくても大丈夫？</summary>
+        <p>大丈夫です。むしろそういう人のためのジムです。1日5分、種目1個から始めます。</p>
+      </details>
+      <details>
+        <summary>道具は必要ですか？</summary>
+        <p>なくて大丈夫です。スマホかパソコンと、ヨガマット1枚分のスペースがあれば始められます。</p>
+      </details>
+      <details>
+        <summary>顔を映さないといけない？</summary>
+        <p>フォームを確認するため体が映るとうれしいですが、顔が映らない角度でもOKです。</p>
+      </details>
+      <details>
+        <summary>何時からレッスンできますか？</summary>
+        <p>平日は20時〜22時、土日は相談して決めます。</p>
+      </details>
+      <details>
+        <summary>支払い方法は？</summary>
+        <p>PayPayでお支払いいただけます。</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="back"><a href="index.html">← トップページに戻る</a></div>
+</main>
+
+<footer>© まろジム</footer>
+
+<script>
+  var menuBtn = document.getElementById('menuBtn');
+  var menu = document.getElementById('menu');
+  function setMenu(open) {
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  }
+  menuBtn.addEventListener('click', function () { setMenu(menu.hidden); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false); });
+</script>
+</body>
+</html>
