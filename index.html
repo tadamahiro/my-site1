@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ずぼらのままで、続けられる人になる。運動が続かない女性のためのオンラインパーソナル「まろジム」。自宅でスマホ1台から、1日5分・種目1個から始められます。お試し50分3,000円。">
+  <meta name="description" content="ずぼらのままで、続けられる人になる。運動が続かない女性のためのオンラインパーソナル「まろジム」。自宅でスマホ1台から、1日5分・種目1個から始められます。無料体験レッスン（40分）受付中。">
   <link rel="canonical" href="https://tadamahiro.github.io/my-site1/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="まろジム｜ずぼら女子のための運動習慣">
-  <meta property="og:description" content="ずぼらのままで、続けられる人になる。運動が続かない女性のためのオンラインパーソナル「まろジム」。自宅でスマホ1台から、1日5分・種目1個から始められます。お試し50分3,000円。">
+  <meta property="og:description" content="ずぼらのままで、続けられる人になる。運動が続かない女性のためのオンラインパーソナル「まろジム」。自宅でスマホ1台から、1日5分・種目1個から始められます。無料体験レッスン（40分）受付中。">
   <meta property="og:url" content="https://tadamahiro.github.io/my-site1/">
   <meta property="og:site_name" content="まろジム">
   <meta name="twitter:card" content="summary">
@@ -239,6 +239,50 @@
     .menu a:hover { background: var(--terracotta-soft); }
     .menu .menu-cta { background: var(--terracotta); color: #fff; text-align: center; margin-top: 6px; }
     .menu .menu-cta:hover { background: var(--terracotta); opacity: .9; }
+
+    /* COURSE FLOW */
+    .flow-box { margin-top: 20px; padding-top: 18px; border-top: 1px dashed var(--sand); }
+    .lesson-flow { background: #fff; border-radius: 16px; padding: 24px; margin-top: 16px; }
+    .flow-title { font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+    .timeline { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .timeline li { display: grid; grid-template-columns: 76px 1fr; gap: 12px; align-items: start; font-size: 13px; }
+    .timeline .min { background: var(--terracotta-soft); color: var(--terracotta); font-weight: 900; font-size: 12px; text-align: center; border-radius: 20px; padding: 3px 4px; }
+    .timeline b { display: block; font-size: 14px; color: var(--text); }
+    .timeline li > span:last-child { color: var(--gray); }
+
+    /* TRIAL */
+    .trial-card { background: #fff; border: 2px solid var(--terracotta); border-radius: 20px; padding: 28px; }
+    .trial-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+    .trial-price { font-size: 44px; font-weight: 900; color: var(--terracotta); line-height: 1; }
+    .trial-meta { font-size: 14px; font-weight: 700; }
+    .trial-btn { display: block; text-align: center; margin-top: 24px; }
+
+    /* PLANS 松竹梅 */
+    .plans { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 760px) { .plans { grid-template-columns: repeat(3, 1fr); align-items: start; } #price.section { max-width: 1040px; } }
+    .plan { position: relative; background: #fff; border-radius: 20px; padding: 28px 22px 24px; border: 1px solid var(--sand); }
+    .plan-featured { border: 2px solid var(--terracotta); }
+    .plan .badge { position: absolute; top: -12px; left: 20px; }
+    .plan .badge-sub { background: var(--dark); }
+    .plan-rank { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: var(--terracotta-soft); color: var(--terracotta); font-weight: 900; margin-bottom: 8px; }
+    .plan h3 { font-size: 19px; font-weight: 900; }
+    .plan-for { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+    .plan-price { font-size: 34px; font-weight: 900; color: var(--terracotta); line-height: 1.2; }
+    .plan-price span { font-size: 14px; color: var(--gray); margin-left: 2px; }
+    .plan-sub { font-size: 12px; font-weight: 700; margin-top: 4px; }
+    .plan .plan-list { margin-top: 14px; }
+    .plan-more { margin-top: 16px; border-top: 1px dashed var(--sand); padding-top: 12px; }
+    .plan-more summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--terracotta); list-style: none; }
+    .plan-more summary::-webkit-details-marker { display: none; }
+    .plan-more summary::after { content: ' ＋'; }
+    .plan-more[open] summary::after { content: ' －'; }
+    .plan-more .timeline { margin-top: 12px; }
+    .plan-more summary:focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
+
+    .plan-lead { font-size: 14px; margin: -12px 0 24px; }
+    .plan-lead b { color: var(--terracotta); }
+    .plan-featured { background: #FFFDFB; box-shadow: 0 8px 24px rgba(196, 101, 74, 0.15); }
+    @media (min-width: 760px) { .plan-featured { transform: translateY(-8px); } }
   </style>
 </head>
 <body>
@@ -254,7 +298,8 @@
     <a href="#zubora">ずぼらでも続く理由</a>
     <a href="#program">プログラム</a>
     <a href="#trainer">トレーナー紹介</a>
-    <a href="#price">料金</a>
+    <a href="#trial">無料体験</a>
+    <a href="#price">料金プラン</a>
     <a href="contact.html" class="menu-cta">無料相談・お問い合わせ</a>
   </div>
 </nav>
@@ -269,7 +314,7 @@
   <!-- ★ここに画像：images/hero.jpg をアップロードすると表示されます -->
   <img src="images/hero.jpg" alt="自宅でゆるく運動する女性" class="hero-img" onerror="this.style.display='none'">
 
-  <a href="contact.html" class="btn">無料相談はこちら</a>
+  <a href="contact.html" class="btn">無料体験を申し込む</a>
   <p class="hero-name">＼ ズボラ筋トレ専門 ／</p>
 </header>
 
@@ -401,7 +446,7 @@
       <p>トレーナーなしでも動ける体を作る。自分だけのルーティンを完成させて卒業。</p>
     </div>
   </div>
-  <p class="note">週1回・50分・全12回</p>
+  <p class="note">週1回・40分・全12回（3ヶ月プランの場合）</p>
 </section>
 
 <!-- DIFFERENCE -->
@@ -436,7 +481,6 @@
       </div>
     </div>
   </div>
-  <p class="diff-note">※画像はイメージです</p>
   <p class="diff-message">違いは意志の強さじゃなくて、<br>環境があるかどうか。</p>
 </section>
 
@@ -470,62 +514,100 @@
   </div>
 </section>
 
+<!-- TRIAL -->
+<section class="section tight" id="trial">
+  <p class="tag">無料体験</p>
+  <h2>まずは無料で、<br>1回やってみませんか？</h2>
+  <div class="trial-card">
+    <div class="trial-head">
+      <p class="trial-price">0円</p>
+      <p class="trial-meta">1回40分／お一人さま1回かぎり</p>
+    </div>
+    <p class="course-desc">「続くか不安…」という人は、ここから。まろとの相性を確かめてください。無理な勧誘は一切しません。</p>
+    <div class="flow-box">
+      <p class="flow-title">無料体験の流れ（40分）</p>
+      <ol class="timeline">
+        <li><span class="min">10分</span><span><b>ヒアリング</b>今の生活リズムや、これまで続かなかった理由を聞かせてください</span></li>
+        <li><span class="min">5分</span><span><b>体のチェック</b>姿勢やしゃがむ動きなど、今の体の状態を一緒に見ます</span></li>
+        <li><span class="min">20分</span><span><b>一緒に動いてみる</b>自宅でできるかんたんな種目を、実際にやってみます</span></li>
+        <li><span class="min">5分</span><span><b>明日からの1個を決める</b>「これならできる」種目を1つだけ決めて終わります</span></li>
+      </ol>
+    </div>
+    <a href="contact.html" class="btn trial-btn">無料体験を申し込む</a>
+  </div>
+</section>
+
 <!-- COURSES -->
 <section class="section tight" id="price">
-  <p class="tag">料金</p>
+  <p class="tag">料金プラン</p>
   <h2>あなたに合うプランを<br>選んでください</h2>
+  <p class="plan-lead">迷ったら、<b>3ヶ月プラン</b>がおすすめ。運動が「習慣」になるまでの期間に合わせています。</p>
 
-  <div class="tabs" role="tablist">
-    <button class="tab active" role="tab" aria-selected="true" data-tab="trial">お試し</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="m3">3ヶ月</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="m6">6ヶ月</button>
-  </div>
-
-  <div class="tab-panel active" id="trial" role="tabpanel">
-    <div class="course-card featured">
-      <span class="badge">まずは1回だけ</span>
-      <h3>お試しプラン（単発）</h3>
-      <p class="course-desc">「続くか不安…」という人は、ここから。まろとの相性を確かめてください。</p>
-      <p class="price">3,000円<span class="per"> / 1回50分</span></p>
+  <div class="plans">
+    <div class="plan">
+      <h3>1回プラン</h3>
+      <p class="plan-price">3,000<span>円 / 回</span></p>
       <ul class="plan-list">
-        <li>今の体と生活のヒアリング</li>
-        <li>自宅でできる種目を一緒に決める</li>
-        <li>無理な勧誘は一切しません</li>
+        <li>1回40分の単発レッスン</li>
+        <li>好きなタイミングで予約OK</li>
+        <li>フォームの確認だけでもOK</li>
       </ul>
     </div>
-  </div>
 
-  <div class="tab-panel" id="m3" role="tabpanel" hidden>
-    <div class="course-card featured">
-      <span class="badge">いちばん人気</span>
-      <h3>3ヶ月コース</h3>
-      <p class="course-desc">運動が「習慣」になるまでの3ヶ月。ずぼらのままで続く形を作ります。</p>
-      <p class="price">29,400円<span class="per"> / 3ヶ月</span></p>
-      <p class="monitor">月あたり 9,800円</p>
+    <div class="plan plan-featured">
+      <span class="badge">おすすめ</span>
+      <h3>3ヶ月プラン</h3>
+      <p class="plan-for">運動を「習慣」にしたい人に</p>
+      <p class="plan-price">14,720<span>円 / 月</span></p>
+      <p class="plan-sub">3ヶ月合計 44,160円／1回あたり3,680円</p>
       <ul class="plan-list">
-        <li>週1回50分×全12回</li>
-        <li>LINEでいつでも報告・相談OK</li>
+        <li>週1回40分（月4回・全12回）</li>
+        <li>LINEで報告・相談OK</li>
         <li>サボっても責めない伴走サポート</li>
       </ul>
+      <details class="plan-more" open>
+        <summary>3ヶ月でやること</summary>
+        <ol class="timeline">
+          <li><span class="min">1ヶ月目</span><span><b>動くクセをつける</b>1日5分・種目1個から。「やれた日」を増やすことに集中</span></li>
+          <li><span class="min">2ヶ月目</span><span><b>少しずつレベルアップ</b>慣れてきた種目を増やしたり、ちょっと強くしたり</span></li>
+          <li><span class="min">3ヶ月目</span><span><b>自分で続ける練習</b>トレーナーなしでも続く、自分だけのメニューを作る</span></li>
+        </ol>
+      </details>
     </div>
-  </div>
 
-  <div class="tab-panel" id="m6" role="tabpanel" hidden>
-    <div class="course-card featured">
-      <span class="badge">いちばんおトク</span>
-      <h3>6ヶ月コース</h3>
-      <p class="course-desc">習慣を「自分のもの」にするまで、じっくり。卒業後も一人で続けられる体に。</p>
-      <p class="price">52,800円<span class="per"> / 6ヶ月</span></p>
-      <p class="monitor">月あたり 8,800円（3ヶ月コースより月1,000円おトク）</p>
+    <div class="plan">
+      <h3>6ヶ月プラン</h3>
+      <p class="plan-for">体の変化までじっくり育てたい人に</p>
+      <p class="plan-price">13,200<span>円 / 月</span></p>
+      <p class="plan-sub">6ヶ月合計 79,200円／1回あたり3,300円</p>
       <ul class="plan-list">
-        <li>週1回50分×全24回</li>
-        <li>LINEでいつでも報告・相談OK</li>
+        <li>週1回40分（月4回・全24回）</li>
+        <li>LINEで報告・相談OK</li>
         <li>後半は「自分で続ける」練習まで</li>
       </ul>
+      <details class="plan-more">
+        <summary>6ヶ月でやること</summary>
+        <ol class="timeline">
+          <li><span class="min">1〜3ヶ月目</span><span><b>習慣を作る</b>3ヶ月プランと同じ内容で、動くクセと自分のメニューを作る</span></li>
+          <li><span class="min">4〜5ヶ月目</span><span><b>体の変化を育てる</b>気になる部分に合わせて調整。「変わってきた」を実感する時期</span></li>
+          <li><span class="min">6ヶ月目</span><span><b>崩れても戻れる力をつける</b>忙しい時期の過ごし方まで決めて、卒業後も一人で続く状態に</span></li>
+        </ol>
+      </details>
     </div>
   </div>
 
-  <p class="note">オンライン（Zoom）で自宅から受けられます。お支払いはPayPayで。</p>
+  <div class="lesson-flow">
+    <p class="flow-title">毎回のレッスンの流れ（40分）</p>
+    <p class="plan-lead">仕事終わりでも集中が切れない40分です。</p>
+    <ol class="timeline">
+      <li><span class="min">5分</span><span><b>この1週間のふり返り</b>できた日もできなかった日も、責めずに一緒に確認</span></li>
+      <li><span class="min">5分</span><span><b>ウォームアップ</b>仕事終わりの固まった体をほぐします</span></li>
+      <li><span class="min">25分</span><span><b>メイントレーニング</b>フォームを画面越しにチェックしながら進めます</span></li>
+      <li><span class="min">5分</span><span><b>ストレッチと来週の1個</b>次の1週間でやる種目を決めて終わり</span></li>
+    </ol>
+  </div>
+
+  <p class="note">オンライン（Zoom）で自宅から受けられます。お支払いは銀行振込またはPayPayで。</p>
 </section>
 
 <!-- SUPPORT -->
@@ -558,17 +640,6 @@
     dot.className = 'dot' + (i < 8 ? ' active' : '');
     dotsContainer.appendChild(dot);
   }
-
-  document.querySelectorAll('.tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.tab').forEach(function (t) {
-        t.classList.remove('active'); t.setAttribute('aria-selected', 'false');
-      });
-      document.querySelectorAll('.tab-panel').forEach(function (p) { p.hidden = true; });
-      tab.classList.add('active'); tab.setAttribute('aria-selected', 'true');
-      document.getElementById(tab.dataset.tab).hidden = false;
-    });
-  });
 
   var menuBtn = document.getElementById('menuBtn');
   var menu = document.getElementById('menu');
